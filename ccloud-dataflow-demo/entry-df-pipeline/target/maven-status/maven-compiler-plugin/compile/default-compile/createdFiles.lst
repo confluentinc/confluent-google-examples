@@ -1,0 +1,8 @@
+com/ecuevas/DataflowPipeline$CoGbkResultToKV.class
+com/ecuevas/DataflowPipeline$CoGbkResultToTableRow.class
+com/ecuevas/DataflowPipeline$logWinners.class
+com/ecuevas/CustomPipelineOptions.class
+com/ecuevas/DataflowPipeline$LogKafkaMsg.class
+com/ecuevas/DataflowPipeline$logBQRows.class
+com/ecuevas/DataflowPipeline$1.class
+com/ecuevas/DataflowPipeline.class
