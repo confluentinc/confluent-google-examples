@@ -28,7 +28,9 @@ You will do most of the work from the Google Cloud Shell, [a command line enviro
 
 1. [Open Cloud Shell](https://shell.cloud.google.com/?show=terminal)
 
-1. You should see something like: ![](2021-08-30-08-49-07.png)
+1. You should see something like: 
+ 
+![](2021-08-30-08-49-07.png)
 
 1. Try a command like:
     ```bash
