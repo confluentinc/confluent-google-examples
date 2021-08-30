@@ -257,7 +257,7 @@ You will now produce a stream of messages to Kafka using a Java Spring Boot appl
 
 Our streaming producer is feeding information in JSON format, but we'll see the strongest capabilities of Schema Registry paired with BigQuery when we process our data in AVRO format. To do that quick data transformation we're going to use a very simple ksqlDB application.
 
-1. Let's find that ksqlDB application we created on Lab
+1. Let's find that ksqlDB application we created on Lab 1
 
 1. Go to the menu on the left and again select ksqlDB, your application should now show status "Up".
 
@@ -329,27 +329,27 @@ The data in `myavrotopic` is now ready to be streamed into BigQuery.
 
 1. Once the connector is created it will take a few minutes for it to start.
 
-1. Back in the Google Cloud Console, in the BigQuery UI, you should see a table myavrotopic show up under `mydataset`. If you click to see the details, the table will already have the columns from your message schema. Under table details, you may see that the table size is still 0 B, but the Streaming Buffer Statistics should show some data. You're free to query the data as it comes in.
+1. Back in the Google Cloud Console, in the BigQuery UI, you should see a table `myavrotopic` show up under `mydataset`. If you click to see the details, the table will already have the columns from your message schema. Under table details, you may see that the table size is still 0 B, but the Streaming Buffer Statistics should show some data. You're free to query the data as it comes in.
 
 ## Lab 5 - Query Data Using BigQuery
 
 ### Task 1 - Run Queries to Explore Data
 
-1. In the Google Cloud Console, select Navigation Menu > BigQuery.
+1. In the Google Cloud Console, select "Navigation Menu" > "BigQuery".
 
     ![](2021-08-30-09-27-57.png)
 
-1.  The "Welcome to BigQuery in the Cloud Console" message box opens. This message box provides a link to the quickstart guide and the release notes. Click Done. The BigQuery console opens.
+1.  The "Welcome to BigQuery in the Cloud Console" message box opens. This message box provides a link to the quickstart guide and the release notes. Click "Done". The BigQuery console opens.
 
-1. In the Explorer pane, open mydataset and click on the table named myavrotopic. You should see the tables' schema which includes the field names and the data types.
+1. In the Explorer pane, open `mydataset` and click on the table named `myavrotopic`. You should see the table's schema which includes the field names and the data types.
 
     ![](2021-08-30-09-28-20.png)
 
-1. Click on the Preview tab to view a subset of the data.
+1. Click on the "Preview" tab to view a subset of the data.
 
     ![](2021-08-30-09-28-34.png)
 
-1. In the upper right corner, click on Compose New Query and paste the following query in the editor which will return data for the Top 10 most viewed Stack Overflow posts:
+1. In the upper right corner, click on "Compose New Query" and paste the following query in the editor which will return data for the *Top 10 most viewed Stack Overflow posts*:
 
     ```sql
     select distinct
@@ -363,7 +363,7 @@ The data in `myavrotopic` is now ready to be streamed into BigQuery.
     limit 10;
     ```
 
-1. Once again, click on Compose New Query in the upper right corner and paste the following query in the editor which will return data for the Top 10 programming languages most commonly found in Stack Overflow posts:
+1. Once again, click on "Compose New Query" in the upper right corner and paste the following query in the editor which will return data for the *Top 10 programming languages most commonly found in Stack Overflow posts*:
 
     ```sql
     SELECT
@@ -400,13 +400,13 @@ The data in `myavrotopic` is now ready to be streamed into BigQuery.
        COUNT(*) DESC;
     ```
 
-    Click Run to return the query's result.
+1. Click "Run" to return the query's result.
 
     Feel free to run any custom queries against the dataset.
 
 ### Task 2 - Run Query to Find Average Number of Days For a Response (By Programming Language and Year)
 
-1. In the Explorer pane of the left, click Add Data > Explore Public Datasets.
+1. In the Explorer pane of the left, click "Add Data" > "Explore Public Datasets".
 
     ![](2021-08-30-09-31-58.png)
 
@@ -414,15 +414,15 @@ The data in `myavrotopic` is now ready to be streamed into BigQuery.
 
     ![](2021-08-30-09-32-11.png)
 
-1. Click View Dataset.
+1. Click "View Dataset".
 
     ![](2021-08-30-09-32-26.png)
 
     You should now see a project appear called `bigquery-public-data`.
 
-1. Click on **Compose New Query** in the upper right corner.
+1. Click on "Compose New Query" in the upper right corner.
 
-1. Building on the last query in Task 1, paste the following query in the editor which will return data for the Average Number of Days For a Response (By Programming Language and Year):
+1. Building on the last query in Task 1, paste the following query in the editor which will return data for the *Average Number of Days For a Response (By Programming Language and Year)*:
 
     ```sql
     SELECT Programming_Language, Year, Avg(Number_of_Days_for_Response) as Average_Number_of_Days_for_Answer
@@ -466,13 +466,13 @@ The data in `myavrotopic` is now ready to be streamed into BigQuery.
       Programming_Language, Year, Average_Number_of_Days_for_Answer asc;
     ```
 
-    Click Run to return the query's result.
+1. Click "Run" to return the query's result.
 
 ### Task 3 - Run Query to Find Number of Active Users vs Total Users By Year
 
-1. Click on Compose New Query in the upper right corner.
+1. Click on "Compose New Query" in the upper right corner.
 
-1. Paste the following query in the editor which will return data for the Number of Active Users vs. Total Users By Year:
+1. Paste the following query in the editor which will return data for the *Number of Active Users vs. Total Users By Year*:
 
     ```sql
     SELECT
@@ -523,21 +523,21 @@ The data in `myavrotopic` is now ready to be streamed into BigQuery.
     ORDER BY Year ASC;
     ```
 
-1. Click Run to return the query's result.
+1. Click "Run" to return the query's result.
 
 ## Lab 6 - Visualize Data Using Data Studio
 
 ### Task 1 - Create a Graph To Visualize Query from Lab #5 - Task 2
 
-1. Return to the Editor tab where the query was run to get the Average Number of Days Between a Question Being Posted and the Question Being Answered (By Programming Language and Year). If you closed that tab, rerun the query in Lab #5 - Task #2 - Step #6.
+1. Return to the Editor tab where the query was run to get the *Average Number of Days Between a Question Being Posted* and the *Question Being Answered (By Programming Language and Year)*. If you closed that tab, rerun the query in Lab #5 - Task #2 - Step #6.
 
-1. In the Query Results pane at the bottom, click Explore  Data > Explore with Data Studio.
+1. In the "Query Results" pane at the bottom, click "Explore Data" > "Explore with Data Studio".
 
     ![](2021-08-30-09-34-43.png)
 
-1. On the Welcome page, click on **GET STARTED**.
+1. On the "Welcome page", click on "GET STARTED".
 
-1. Click on **AUTHORIZE** for the notice that "Data Studio requires authorization to connect to your BigQuery projects."
+1. Click on "AUTHORIZE" for the notice that "Data Studio requires authorization to connect to your BigQuery projects."
 
     In the top left corner, change the title of the dashboard to: `Average Number of Days For Response`
 
@@ -547,7 +547,7 @@ The data in `myavrotopic` is now ready to be streamed into BigQuery.
 
     ![](2021-08-30-09-35-47.png)
 
-1. In the "Data" tab, click on the `Record Count` column under Metric and change column to `Average_Number_of_Days_for_Answer`. 
+1. In the "Data" tab, click on the `Record Count` column under "Metric" and change column to `Average_Number_of_Days_for_Answer`. 
 
     ![](2021-08-30-09-36-35.png)
 
@@ -555,13 +555,13 @@ The data in `myavrotopic` is now ready to be streamed into BigQuery.
 
     ![](2021-08-30-09-36-48.png)
 
-1. In the upper left corner, click Add a chart. Under the Bar section, select the 1st graph which should be Column Chart.
+1. In the upper left corner, click "Add a chart". Under the "Bar" section, select the 1st graph which should be "Column Chart".
 
     ![](2021-08-30-09-37-04.png)
 
     ![](2021-08-30-09-37-17.png)
 
-1. Verify that under the Data tab, `Programming_Language` is in the Dimension section, `Average_Number_of_Days_for_Answer` (SUM) is in the Metric section and `Average_Number_of_Days_for_Answer` (SUM) is in the Sort section as Descending. 
+1. Verify that under the "Data" tab, `Programming_Language` is in the "Dimension" section, `Average_Number_of_Days_for_Answer` (SUM) is in the "Metric" section and `Average_Number_of_Days_for_Answer` (SUM) is in the "Sort" section as "Descending".
 
     ![](2021-08-30-09-37-59.png)
 
@@ -571,25 +571,25 @@ The data in `myavrotopic` is now ready to be streamed into BigQuery.
 
 ### Task 2 - Create a Chart To Visualize Query from Lab #5 - Task 3
 
-1. Return to the Editor tab where the query was run to get the Number of Active Users vs. Total Users By Year. If you closed that tab, rerun the query in Lab #5 - Task #3 - Step #2.
+1. Return to the "Editor" tab where the query was run to get the *Number of Active Users vs. Total Users By Year*. If you closed that tab, rerun the query in Lab #5 - Task #3 - Step #2.
 
-1. In the Query Results pane at the bottom, click Explore  Data > Explore with Data Studio.
+1. In the "Query Results" pane at the bottom, click "Explore Data" > "Explore with Data Studio".
 
     ![](2021-08-30-09-38-38.png)
 
-1. If prompted, on the **Welcome** page, click on **GET STARTED**.
+1. If prompted, on the "Welcome" page, click on "GET STARTED".
 
-1. If prompted, click on **AUTHORIZE** for the notice that "Data Studio requires authorization to connect to your BigQuery projects."
+1. If prompted, click on "AUTHORIZE" for the notice that "Data Studio requires authorization to connect to your BigQuery projects."
 
 1. In the top left corner, change the title of the dashboard to: `Number of Active Users on StackOverflow`
 
     ![](2021-08-30-09-39-29.png)
 
-1. In the upper right corner labeled **Chart > Table**, select **100% Stacked Bar Chart**.
+1. In the upper right corner labeled "Chart" > "Table", select "100% Stacked Bar Chart".
 
     ![](2021-08-30-09-39-59.png)
 
-1. In the Data tab, under the Breakdown Dimension section, remove the Active_Users column. Under the Metric section, drag the Active_Users column from the Available  Fields section to the right and replace the Record  Count column. Drag the Total_Users column as a 2nd metric under the Metric section. Re-select the 100% Stacked Bar Chart graph  option. Under the Sort section, click on the column displayed and change to the Year column and then select the Ascending radio button. The Data pane should look as followed:
+1. In the "Data" tab, under the "Breakdown Dimension" section, remove the `Active_Users` column. Under the "Metric" section, drag the `Active_Users` column from the "Available  Fields" section to the right and replace the "Record Count" column. Drag the `Total_Users` column as a 2nd metric under the "Metric" section. Re-select the "100% Stacked Bar Chart" graph option. Under the "Sort" section, click on the column displayed and change to the `Year` column and then select the "Ascending" radio button. The "Data" pane should look as followed:
 
     ![](2021-08-30-09-40-17.png)
 
@@ -597,13 +597,13 @@ The data in `myavrotopic` is now ready to be streamed into BigQuery.
 
     ![](2021-08-30-09-40-36.png)
 
-1. In the upper left corner, click Add a chart. Under the Time  Series section, select the 1st graph which should be Time Series  Chart.
+1. In the upper left corner, click "Add a chart". Under the "Time Series" section, select the 1st graph which should be "Time Series Chart".
 
     ![](2021-08-30-09-40-51.png)
 
     ![](2021-08-30-09-41-03.png)
 
-1. Verify that under the Data tab, Year is in the Dimension section and Active_Users is in the Metric section..
+1. Verify that under the "Data" tab, `Year` is in the "Dimension" section and `Active_Users` is in the "Metric" section..
 
     ![](2021-08-30-09-41-18.png)
 
@@ -613,10 +613,10 @@ The data in `myavrotopic` is now ready to be streamed into BigQuery.
 
 ## Lab 7 - Cleanup
 
-1. In the Confluent Cloud dashboard, go to ksqlDB
+1. In the Confluent Cloud dashboard, go to ksqlDB.
 
-1. Click "Delete" on the ksqlDB application and follow instructions to complete the delete process
+1. Click "Delete" on the ksqlDB application and follow instructions to complete the delete process.
 
 1. In the Confluent Cloud dashboard, go to Connections, select the BigQuery connector, select settings and the "trash" icon.  Follow the instructions to complete the delete process.
 
-1. In the Confluent Cloud dashboard, go to the Cluster settings, click "Delete cluster" and follow instructions to complete the delete process**
+1. In the Confluent Cloud dashboard, go to the Cluster settings, click "Delete cluster" and follow instructions to complete the delete process.
