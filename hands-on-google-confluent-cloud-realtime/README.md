@@ -269,6 +269,10 @@ Our streaming producer is feeding information in JSON format, but we'll see the 
         VALUE_FORMAT='JSON_SR'
     );
     ```
+    
+    
+    **Note: If you get an error with the SQL commands, try typing it out vs using copy-paste.**
+    
 
     ![](2021-08-30-09-24-28.png)
 
